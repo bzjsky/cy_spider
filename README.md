@@ -8,18 +8,16 @@ cy_spider
 ├─cy_spider 爬虫相关
 │  │─file 谷歌浏览器驱动文件（需浏览器渲染完才能抓取时使用）
 │  │─spiders 爬虫
-│  │    ├─XiaoBeiSpider.py 小贝PS教程视频爬虫
-│  │    └─BaseSpider.py  爬虫父类
+│  │    ├─BaseSpider.py  爬虫父类
+│  │    └─XiaoBeiSpider.py 小贝PS教程视频爬虫
 │  ├─items.py 指定保存文件的数据结构
 │  ├─middlewares.py  中间件，处理request和reponse等相关配置
 │  └─pipelines.py 项目管道，可以输出items
 │  └─settings.py  设置文件，指定项目的一些配置
-├─util 工具类(暂不提供，避免引用太多包，不影响项目运行)
-│  ├─db 数据库
-│  ├─CookieUtil.py cookie
+├─util 工具类
 │  ├─cy_logger.py 日志
-│  ├─date_util.py 日期
-│  └─XPathUtil.py xpath相关
+│  ├─sqlite3_util.py sqlite3工具类
+│  └─sqlite3_util_test.py sqlite3工具类使用方式
 ├─scrapy.cfg scrapy配置 
 ├─README.md 说明文件
 ├─requirements.txt 依赖包
