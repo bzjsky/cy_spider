@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 import sqlite3
 
 from util import cy_logger
@@ -7,7 +8,10 @@ from util import cy_logger
 class DBSqlite3:
 
     def __init__(self, create_table_sql):
-        self.db = "../db/spider.db"
+        path = "../db/"
+        if not os.path.exists(path):
+            os.makedirs(path)
+        self.db = path + "spider.db"
         sqlite3.connect(self.db).execute(create_table_sql)
         cy_logger.log("DBSqlite3 init")
 

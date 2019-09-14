@@ -9,3 +9,8 @@
 class CySpiderPipeline(object):
     def process_item(self, item, spider):
         return item
+
+
+class FreeIpSpiderPipeline(object):
+    def process_item(self, item, spider):
+        return item

@@ -10,6 +10,8 @@ def crawl(spiders):
 
 if __name__ == '__main__':
     crawl([
-        "xiaobei"
+        # "xiaobei",
+        # "proxy_ip",
+        "freeIp",
     ])
 
