@@ -9,7 +9,8 @@ cy_spider
 │  │─file 谷歌浏览器驱动文件（需浏览器渲染完才能抓取时使用）
 │  │─spiders 爬虫
 │  │    ├─BaseSpider.py  爬虫父类
-│  │    └─XiaoBeiSpider.py 小贝PS教程视频爬虫
+│  │    ├─XiaoBeiSpider.py 小贝PS教程视频爬虫
+│  │    └─AnimeSpider.py 阿里漫画爬虫
 │  ├─items.py 指定保存文件的数据结构
 │  ├─middlewares.py  中间件，处理request和reponse等相关配置
 │  └─pipelines.py 项目管道，可以输出items
@@ -36,6 +37,7 @@ pip install pymysql
 pip install qiniu
 pip install DBUtils
 pip install bs4
+pip install PyExecJS
 ```
 **如windows安装scrapy失败手动下载安装twisted，后安装scrapy**
 - [下载twisted](https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted)
