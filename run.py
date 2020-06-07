@@ -12,6 +12,6 @@ if __name__ == '__main__':
     crawl([
         # "xiaobei",
         # "proxy_ip",
-        "freeIp",
+        "anime",
     ])
 
