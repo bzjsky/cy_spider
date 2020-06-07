@@ -49,6 +49,6 @@ class XiaoBeiSpider(BaseSpider):
             )
 
     def download(self, response):
-        self.downloadfiles('/Users/zj/work/学习/ps/', "{filename}.mp4".format(filename=response.meta['filename']),
-                           response.body)
+        self.download_files('/Users/zj/work/学习/ps/', "{filename}.mp4".format(filename=response.meta['filename']),
+                            response.body)
 

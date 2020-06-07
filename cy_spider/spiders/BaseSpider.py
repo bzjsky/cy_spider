@@ -17,7 +17,7 @@ class BaseSpider(CrawlSpider):
     def log_error(self, msg):
         self.log(msg, logging.ERROR)
 
-    def downloadfiles(self, root_dir, filename, body):
+    def download_files(self, root_dir, filename, body):
 
         is_exists = os.path.exists(root_dir)  # 是否存在该目录
         if not is_exists:
