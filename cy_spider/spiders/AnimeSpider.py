@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*
+import os
 import re
 import execjs
 
@@ -19,6 +20,8 @@ class AnimeSpider(BaseSpider):
     http://www.alimanhua.com/manhua/214/index.html
     斗罗大陆4终极斗罗
     http://www.alimanhua.com/manhua/3001/index.html
+    武动乾坤
+    http://www.alimanhua.com/manhua/159/
     """
 
     # 自定义配置
@@ -30,8 +33,8 @@ class AnimeSpider(BaseSpider):
 
     def __init__(self, *a, **kw):
         super(AnimeSpider, self).__init__(*a, **kw)
-        self.root_url = "http://www.alimanhua.com/manhua/74/index.html"
-        self.target_dir = '/Users/zj/work/动漫/斗罗大陆/'
+        self.root_url = "http://www.alimanhua.com/manhua/159/"
+        self.target_dir = '/Users/zj/work/动漫/武动乾坤/'
 
     def start_requests(self):
         yield Request(
@@ -44,13 +47,15 @@ class AnimeSpider(BaseSpider):
         items = response.xpath('//*[@id="play_0"]/ul/li')
         max_length = len(items)
         for item in items:
-            yield Request(
-                url="http://www.alimanhua.com" + item.xpath('a/@href').extract_first(),
-                callback=self.detail,
-                dont_filter=True,
-                meta={"dir": str(max_length)+"-"+item.xpath('a/text()').extract_first()},
-            )
+            dir = str(max_length)+"-"+item.xpath('a/text()').extract_first()
             max_length -= 1
+            if not os.path.exists(self.target_dir + dir):
+                yield Request(
+                    url="http://www.alimanhua.com" + item.xpath('a/@href').extract_first(),
+                    callback=self.detail,
+                    dont_filter=True,
+                    meta={"dir": dir},
+                )
 
     def detail(self, response):
         str = re.findall(r'packed=".+\"', response.text)
